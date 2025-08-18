@@ -12,7 +12,7 @@ apt update && apt upgrade -y
 
 # Remover pacotes desnecessarios
 echo "Removendo pacotes desnecessarios..."
-sudo apt purge --auto-remove snapd cloud-init lxd lxcfs open-iscsi rsyslog -y
+sudo apt purge --auto-remove snapd cloud-init lxd lxcfs open-iscsi rsyslog popularity-contest apport whoopsie ubuntu-advantage-tools -y
 sudo apt purge --auto-remove unattended-upgrades -y
 sudo apt autoremove --purge -y
 sudo apt clean
@@ -20,9 +20,13 @@ sudo apt clean
 # Instalar pacotes essenciais
 echo "Instalando pacotes essenciais..."
 apt install iftop ncdu tmux iotop fail2ban sysstat fio sysbench -y
+apt install openssh-server net-tools systemd-resolved -y 
+apt install language-pack-pt-br-base sudo curl wget -y
 
 apt install --no-install-recommends -y linux-image-generic linux-headers-generic
 apt purge -y $(dpkg --list | grep -E 'linux-(headers|image)-[0-9]+' | grep -v $(uname -r | cut -d'-' -f1,2) | awk '{print $2}')
+
+apt clean && rm -rf /var/lib/apt/lists/*
 
 # Configurar otimizacoes de kernel
 echo "Configurando otimizacoes de kernel..."
@@ -61,6 +65,11 @@ sysctl -p /etc/sysctl.d/99-optimizations.conf
 # Desabilitar servicos desnecessarios
 echo "Desabilitando servicos desnecessarios..."
 sudo systemctl disable --now avahi-daemon cups-browsed ModemManager
+systemctl disable NetworkManager-wait-online.service
+systemctl mask systemd-udev-settle.service
+
+# Limpeza agresiva
+rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Configurar I/O Scheduler para SSDs/HDDs
 #echo "Otimizando I/O Scheduler..."
@@ -96,9 +105,11 @@ sudo systemctl disable --now avahi-daemon cups-browsed ModemManager
 #sed -i 's/ENABLED="false"/ENABLED="true"/' /etc/default/sysstat
 #systemctl enable --now sysstat
 
+
 echo "Otimizacao concluida!"
 echo "Recomendacoes finais:"
 echo "1. Reinicie o servidor para aplicar todas as configuracoes"
-echo "2. Considere usar XFS para particoes de dados com as opcoes: noatime,nodiratime,nobarrier"
-#echo "3. Configure seu banco de dados (PostgreSQL/Firebird) apos a reinicializacao"
+#echo "2. Configure seu banco de dados (PostgreSQL/Firebird) apos a reinicializacao"
+echo "3. Considere usar XFS para particoes de dados com as opcoes: noatime,nodiratime,nobarrier"
 echo " "
+echo "(!) FINALIZADO"
