@@ -19,8 +19,10 @@ sudo apt clean
 
 # Instalar pacotes essenciais
 echo "Instalando pacotes essenciais..."
-sudo apt install --no-install-recommends linux-image-generic linux-headers-generic -y
 apt install iftop ncdu tmux iotop fail2ban sysstat fio sysbench -y
+
+apt install --no-install-recommends -y linux-image-generic linux-headers-generic
+apt purge -y $(dpkg --list | grep -E 'linux-(headers|image)-[0-9]+' | grep -v $(uname -r | cut -d'-' -f1,2) | awk '{print $2}')
 
 # Configurar otimizacoes de kernel
 echo "Configurando otimizacoes de kernel..."
@@ -97,6 +99,6 @@ sudo systemctl disable --now avahi-daemon cups-browsed ModemManager
 echo "Otimizacao concluida!"
 echo "Recomendacoes finais:"
 echo "1. Reinicie o servidor para aplicar todas as configuracoes"
-#echo "2. Configure seu banco de dados (PostgreSQL/Firebird) apos a reinicializacao"
 echo "2. Considere usar XFS para particoes de dados com as opcoes: noatime,nodiratime,nobarrier"
+#echo "3. Configure seu banco de dados (PostgreSQL/Firebird) apos a reinicializacao"
 echo " "
