@@ -10,6 +10,10 @@ fi
 echo "Atualizando sistema..."
 apt update && apt upgrade -y
 
+# Atualizar timezone
+echo "Atualiza timezone para America/Sao_Paulo"
+timedatectl set-timezone America/Sao_Paulo
+
 # Remover pacotes desnecessarios
 echo "Removendo pacotes desnecessarios..."
 sudo apt purge --auto-remove snapd cloud-init lxd lxcfs open-iscsi rsyslog popularity-contest apport whoopsie ubuntu-advantage-tools -y
@@ -111,5 +115,7 @@ echo "Recomendacoes finais:"
 echo "1. Reinicie o servidor para aplicar todas as configuracoes"
 #echo "2. Configure seu banco de dados (PostgreSQL/Firebird) apos a reinicializacao"
 echo "3. Considere usar XFS para particoes de dados com as opcoes: noatime,nodiratime,nobarrier"
+echo " "
+timedatectl
 echo " "
 echo "(!) FINALIZADO"
