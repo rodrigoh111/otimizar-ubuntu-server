@@ -31,7 +31,7 @@ apt clean && rm -rf /var/lib/apt/lists/*
 # Configurar otimizacoes de kernel
 echo "Configurando otimizacoes de kernel..."
 cat > /etc/sysctl.d/99-optimizations.conf << 'EOL'
-# Otimizacoes para PostgreSQL/Firebird
+# Otimizacoes para PostgreSQL (caso use para banco de dados será util)
 kernel.shmmax = 17179869184
 kernel.shmall = 4194304
 vm.swappiness = 1
