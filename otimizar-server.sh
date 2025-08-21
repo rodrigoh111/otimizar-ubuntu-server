@@ -16,7 +16,7 @@ timedatectl set-timezone America/Sao_Paulo
 
 # Remover pacotes desnecessarios
 echo "Removendo pacotes desnecessarios..."
-sudo apt purge --auto-remove snapd cloud-init lxd lxcfs open-iscsi rsyslog popularity-contest apport whoopsie ubuntu-advantage-tools aptitude -y
+sudo apt purge --auto-remove snapd cloud-init lxd lxcfs open-iscsi rsyslog popularity-contest apport whoopsie ubuntu-advantage-tools -y
 sudo apt purge --auto-remove unattended-upgrades -y
 sudo apt autoremove --purge -y
 sudo apt clean
@@ -25,7 +25,7 @@ sudo apt clean
 echo "Instalando pacotes essenciais..."
 apt install iftop ncdu tmux iotop fail2ban sysstat fio sysbench -y
 apt install openssh-server net-tools systemd-resolved -y 
-apt install language-pack-pt-br-base sudo curl wget -y
+apt install language-pack-pt-br-base sudo curl wget aptitude python3 python3-pip python3-venv -y
 
 apt install --no-install-recommends -y linux-image-generic linux-headers-generic
 apt purge -y $(dpkg --list | grep -E 'linux-(headers|image)-[0-9]+' | grep -v $(uname -r | cut -d'-' -f1,2) | awk '{print $2}')
