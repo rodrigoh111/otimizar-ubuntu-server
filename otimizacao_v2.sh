@@ -2,7 +2,7 @@
 
 # Script de Otimização do Ubuntu
 # Descrição: Remove pacotes desnecessários e instala utilitários essenciais
-# Autor: Assistant
+# Autor: Rodrigoh
 # Versão: 1.1
 # Aviso: Use por sua conta e risco. Sempre teste em ambiente não produtivo primeiro.
 
@@ -112,8 +112,9 @@ PACOTES_ESSENCIAIS=(
     # Ferramentas do sistema
     "software-properties-common" "apt-transport-https"
     "ca-certificates" "gnupg" "lsb-release" "ubuntu-restricted-extras"
-    "build-essential" "git" "vim" "nano" "tree" "unzip"
-    "p7zip-full" "rsync" "fail2ban" "ufw" "mlocate"
+    "build-essential"
+    #"git" "vim" "nano" "tree" "unzip"
+    #"p7zip-full" "rsync" "fail2ban" "ufw" "mlocate"
     
     # Informações de hardware
     "lshw" "inxi" "lsof" "strace" "hdparm"
