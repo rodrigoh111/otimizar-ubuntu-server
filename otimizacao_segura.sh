@@ -13,10 +13,34 @@ apt update
 
 # Pacotes seguros para remover
 PACOTES_SEGUROS=(
-    "gnome-mahjongg" "gnome-mines" "gnome-sudoku" "aisleriot"
-    "thunderbird" "rhythmbox" "simple-scan" "cheese"
-    "example-content" "popularity-contest" "apport" "whoopsie"
-    "ubuntu-report" "deja-dup" "gnome-orca" "gnome-chess"
+    "gnome-mahjongg"
+    "gnome-mines"
+    "gnome-sudoku"
+    "aisleriot"
+    "thunderbird"
+    "rhythmbox"
+    "simple-scan"
+    "cheese"
+    "example-content"
+    "popularity-contest"
+    "apport"
+    "whoopsie"
+    "ubuntu-report"
+    "deja-dup"
+    "gnome-orca"
+    "gnome-chess"
+    "snapd"
+    "snap-confine"
+    "gnome-software-plugin-snap"
+    "transmission-common"
+    "gnome-user-docs"
+    "yelp"
+    "totem"
+    "gnome-software"
+    "update-notifier"
+    "zeitgeist"
+    "speech-dispatcher"
+    "brltty"
 )
 
 # Remover apenas estes
