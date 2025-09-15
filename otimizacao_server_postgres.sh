@@ -132,8 +132,27 @@ echo "Recomendado: Reinicie o sistema para aplicar todas as configurações."
 #Menor uso de swap
 #Mais arquivos abertos permitidos
 
+#Ajustes Importantes:
+#Ajuste estes valores baseado na sua RAM real:
+
+# Para 8GB RAM:
+#kernel.shmmax = 8589934592    # 8GB
+#kernel.shmall = 2097152       # 8GB em páginas de 4KB
+
+# Para 32GB RAM:
+#kernel.shmmax = 34359738368   # 32GB  
+#kernel.shmall = 8388608       # 32GB em páginas de 4KB
 
 
+#Como verificar após aplicar:
+# Verificar configurações de memória compartilhada
+#ipcs -l
+
+# Verificar limites do usuário postgres
+#su - postgres -c 'ulimit -a'
+
+# Verificar configurações aplicadas
+#sysctl -a | grep -E "shm|dirty|file-max"
 
 
 
