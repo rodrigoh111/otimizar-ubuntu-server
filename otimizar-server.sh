@@ -16,8 +16,8 @@ timedatectl set-timezone America/Sao_Paulo
 
 # Remover pacotes desnecessarios
 echo "Removendo pacotes desnecessarios..."
-sudo apt purge --auto-remove snapd cloud-init lxd lxcfs open-iscsi rsyslog popularity-contest apport whoopsie ubuntu-advantage-tools -y
-sudo apt purge --auto-remove unattended-upgrades -y
+sudo apt purge --auto-remove snapd cloud-init lxd lxcfs open-iscsi popularity-contest apport whoopsie ubuntu-advantage-tools -y
+#sudo apt purge --auto-remove unattended-upgrades -y
 sudo apt autoremove --purge -y
 sudo apt clean
 
