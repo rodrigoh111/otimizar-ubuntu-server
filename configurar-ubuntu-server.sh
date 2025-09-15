@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script de Otimização do Ubuntu
+# Script de Otimização do Ubuntu e instalar ferramentas
 # Descrição: Remove pacotes desnecessários e instala utilitários essenciais
 # Autor: Rodrigoh
 # Versão: 2.0
