@@ -24,8 +24,10 @@ sudo apt clean
 # Instalar pacotes essenciais
 echo "Instalando pacotes essenciais..."
 apt install iftop ncdu tmux iotop fail2ban sysstat fio sysbench -y
+apt install apt-transport-https ca-certificates curl software-properties-common iputils-ping wget -y
+apt install net-tools apt-utils systemd dirmngr apt-transport-https lsb-release ca-certificate python3 python3-venv python3-pip -y
 apt install openssh-server net-tools systemd-resolved -y 
-apt install language-pack-pt-br-base sudo curl wget aptitude python3 python3-pip python3-venv -y
+apt install language-pack-pt-br-base sudo aptitude python3 python3-pip python3-venv -y
 
 apt install --no-install-recommends -y linux-image-generic linux-headers-generic
 apt purge -y $(dpkg --list | grep -E 'linux-(headers|image)-[0-9]+' | grep -v $(uname -r | cut -d'-' -f1,2) | awk '{print $2}')
