@@ -88,6 +88,7 @@ PACOTES_ESSENCIAIS=(
     "software-properties-common" "apt-transport-https"
     "ca-certificates" "gnupg" "lsb-release" "ubuntu-restricted-extras"
     "build-essential"
+    "plocate"
     "lshw" "inxi" "lsof" "strace" "hdparm"
     "python3" "python3-pip" "python3-venv" "python3-dev"
     "pipx" "jq" "yq" "tmux" "screen" "zip" "unrar" "testdisk" "fdupes"
