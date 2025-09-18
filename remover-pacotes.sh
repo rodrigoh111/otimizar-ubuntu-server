@@ -1,6 +1,18 @@
 #!/bin/bash
 
-# Script de Limpeza Segura do Ubuntu
+# Script de Otimização do Ubuntu e instalar ferramentas
+# Descrição: Remove pacotes desnecessários e instala utilitários essenciais
+# Autor: Rodrigoh
+# Versão: 2.0
+# Aviso: Use por sua conta e risco. Sempre teste em ambiente não produtivo primeiro.
+
+# Cores para output
+VERMELHO='\033[0;31m'
+VERDE='\033[0;32m'
+AMARELO='\033[1;33m'
+AZUL='\033[0;34m'
+NC='\033[0m' # No Color
+
 set -euo pipefail
 
 # Verificar root
